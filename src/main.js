@@ -1,6 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import './style.css' // 👈 links your custom CSS
+
+// Import your global CSS here:
+import './assets/style.css'
 
 createApp(App).use(router).mount('#app')
