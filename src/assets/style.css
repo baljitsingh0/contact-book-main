@@ -1,122 +1,51 @@
-:root {
-  /* Typography */
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  /* Color Scheme */
-  color-scheme: light dark;
-
-  /* Dark Theme Colors */
-  --color-bg: #242424;
-  --color-text: rgb(249, 244, 244);
-  --color-primary: #d716b7;
-  --color-primary-hover: #d716b7;
-  --color-button-bg: #1a1a1a;
-  --color-card-bg: rgba(255, 255, 255, 0.05);
-
-  /* Base Styling */
-  color: var(--color-text);
-  background-color: var(--color-bg);
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Links */
-a {
-  font-weight: 500;
-  color: var(--color-primary);
-  text-decoration: inherit;
-}
-a:hover {
-  color: var(--color-primary-hover);
-}
-
-/* Body Layout */
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  background-color: var(--color-bg);
-  color: var(--color-text);
-}
-
-/* Headings */
+/* Responsive Heading */
 h1 {
-  font-size: 3.2em;
+  font-size: clamp(2rem, 5vw, 3.2rem);
   line-height: 1.1;
 }
 
-/* Buttons */
+/* Button improvements */
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: var(--color-button-bg);
-  color: var(--color-text);
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: var(--color-primary);
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  transition: border-color 0.25s, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
-/* Card Container */
+button:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  background-color: var(--color-primary);
+  color: white;
+}
+
+button:focus-visible {
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px var(--color-primary);
+  background-color: var(--color-primary);
+  color: white;
+}
+
+/* Card shadow and hover */
 .card {
   padding: 2em;
   background-color: var(--color-card-bg);
   border-radius: 12px;
+  transition: box-shadow 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-/* App Wrapper */
+.card:hover {
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* Smooth color transitions */
+:root {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Responsive app wrapper */
 #app {
-  max-width: 1280px;
+  max-width: 90%;
+  padding: 2rem 1rem;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
-}
-
-/* Light Mode Overrides */
-@media (prefers-color-scheme: light) {
-  :root {
-    --color-bg: #e17474;
-    --color-text: #213547;
-    --color-primary: #646cff;
-    --color-primary-hover: #747bff;
-    --color-button-bg: #f9f9f9;
-    --color-card-bg: #ffffff;
-
-    color: var(--color-text);
-    background-color: var(--color-bg);
-  }
-
-  body {
-    background-color: var(--color-bg);
-    color: var(--color-text);
-  }
-
-  a:hover {
-    color: var(--color-primary-hover);
-  }
-
-  button {
-    background-color: var(--color-button-bg);
-  }
-
-  .card {
-    background-color: var(--color-card-bg);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  }
 }
